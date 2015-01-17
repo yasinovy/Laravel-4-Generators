@@ -1,7 +1,7 @@
 <?php
 
+use \Elza\Schema\ElzaBlueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 
 class $CLASS$ extends Migration {
 
@@ -12,6 +12,13 @@ class $CLASS$ extends Migration {
 	 */
 	public function up()
 	{
+		//to usr my custom class 
+		$schema = DB::getSchemaBuilder();
+
+		$schema->blueprintResolver(function($table, $callback) {
+			return new ElzaBlueprint($table, $callback);
+		});
+
 		$UP$
 	}
 
